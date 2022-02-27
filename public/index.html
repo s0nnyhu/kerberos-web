@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Express website</title>
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+
+        // Whenever the user explicitly chooses light mode
+        localStorage.theme = 'light'
+
+        // Whenever the user explicitly chooses dark mode
+        localStorage.theme = 'dark'
+
+        // Whenever the user explicitly chooses to respect the OS preference
+        localStorage.removeItem('theme')
+    </script>
+</head>
+
+<body class="dark:bg-black">
+    <div class="flex flex-col mx-auto space-y-4 font-mono mt-8 text-white text-sm font-bold leading-6 max-w-xs">
+        <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
+            <form action="/shutdown/instant" method="post">
+                <input type="submit" class="p-4 cursor-pointer" value="Instant shutdown" />
+            </form>
+        </div>
+        <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
+            <form action="/shutdown/30" method="post">
+                <input type="submit" class="p-4 cursor-pointer" value="Shutdown in 30mn" />
+            </form>
+        </div>
+        <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
+            <form action="/shutdown/45" method="post">
+                <input type="submit" class="p-4 cursor-pointer" value="Shutdown in 45mn" />
+            </form>
+        </div>
+        <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
+            <form action="kill/firefox" method="post">
+                <input type="submit" class="p-4 cursor-pointer" value="Kill firefox" />
+            </form>
+        </div>
+        <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
+            <form action="others/reduce-vol/30" method="post">
+                <input type="submit" class="p-4 cursor-pointer" value="Reduce volume to 30%" />
+            </form>
+        </div>
+        <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
+            <form action="others/mute" method="post">
+                <input type="submit" class="p-4 cursor-pointer" value="Mute" />
+            </form>
+        </div>
+        <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
+            <form action="others/unmute" method="post">
+                <input type="submit" class="p-4 cursor-pointer" value="Unmute" />
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
