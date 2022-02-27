@@ -16,59 +16,59 @@ app.get('/', function (req, res) {
 app.post('/shutdown/instant', function (req, res) {
     let resCmd = cmd.instantShutdown();
     if (resCmd.err) {
-        res.send('Error');
+        res.json({ status: 'nok' })
     }
-    res.send(' Submitted Successfully!');
+    res.json({ status: 'ok' })
 });
 
 app.post('/shutdown/30', function (req, res) {
     let resCmd = cmd.shutdown30();
     if (resCmd.err) {
-        res.send('Error');
+        res.json({ status: 'nok' })
     }
-    res.send(' Submitted Successfully!');
+    res.json({ status: 'ok' })
 });
 
 app.post('/shutdown/45', function (req, res) {
     let resCmd = cmd.shutdown45();
     if (resCmd.err) {
-        res.send('Error');
+        res.json({ status: 'nok' })
     }
-    res.send(' Submitted Successfully!');
+    res.json({ status: 'ok' })
 });
 
 app.post('/kill/firefox', function (req, res) {
     let resCmd = cmd.killFirefox();
     if (resCmd.err) {
-        res.send('Error');
+        res.json({ status: 'nok' })
     }
-    res.send(' Submitted Successfully!');
+    res.json({ status: 'ok' })
 });
 
 
 app.post('/others/reduce-vol/30', function (req, res) {
     let resCmd = cmd.reduceVol30();
     if (resCmd.err) {
-        res.send('Error');
+        res.json({ status: 'nok' })
     }
-    res.send(' Submitted Successfully!');
+    res.json({ status: 'ok' })
 });
 
 
 app.post('/others/mute', function (req, res) {
     let resCmd = cmd.mute();
     if (resCmd.err) {
-        res.send('Error');
+        res.json({ status: 'nok' })
     }
-    res.send(' Submitted Successfully!');
+    res.json({ status: 'ok' })
 });
 
 app.post('/others/unmute', function (req, res) {
     let resCmd = cmd.unmute();
     if (resCmd.err) {
-        res.send('Error');
+        res.json({ status: 'nok' })
     }
-    res.send(' Submitted Successfully!');
+    res.json({ status: 'ok' })
 });
 
 const server = app.listen(5000, "192.168.0.10" || "localhost", () => {

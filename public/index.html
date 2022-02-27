@@ -26,6 +26,7 @@
         // Whenever the user explicitly chooses to respect the OS preference
         localStorage.removeItem('theme')
     </script>
+    <script src="js/app.js"></script>
 </head>
 
 <body class="dark:bg-black">
@@ -57,19 +58,25 @@
                     <div
                         class="flex flex-col mx-auto space-y-4 font-mono text-white text-sm font-bold leading-6 max-w-xs">
                         <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
-                            <form action="/shutdown/instant" method="post">
-                                <input type="submit" class="p-4 cursor-pointer" value="Instant shutdown" />
-                            </form>
+                            <button class="hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onclick="performTask('instant-shutdown')">
+                                Instant shutdown
+                            </button>
+                            <span class="p-2 text-black"></span>
                         </div>
                         <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
-                            <form action="/shutdown/30" method="post">
-                                <input type="submit" class="p-4 cursor-pointer" value="Shutdown in 30mn" />
-                            </form>
+                            <button class="hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onclick="performTask('shutdown-30')">
+                                Shutdown in 30mn
+                            </button>
+                            <span class="p-2 text-black"></span>
                         </div>
                         <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
-                            <form action="/shutdown/45" method="post">
-                                <input type="submit" class="p-4 cursor-pointer" value="Shutdown in 45mn" />
-                            </form>
+                            <button class="hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onclick="performTask('shutdown-45')">
+                                Shutdown in 45mn
+                            </button>
+                            <span class="p-2 text-black"></span>
                         </div>
                     </div>
                 </div>
@@ -105,9 +112,11 @@
                     <div
                         class="flex flex-col mx-auto space-y-4 font-mono text-white text-sm font-bold leading-6 max-w-xs">
                         <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
-                            <form action="kill/firefox" method="post">
-                                <input type="submit" class="p-4 cursor-pointer" value="Kill firefox" />
-                            </form>
+                            <button class="hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onclick="performTask('kill-firefox')">
+                                Kill firefox
+                            </button>
+                            <span class="p-2 text-black"></span>
                         </div>
                     </div>
                 </div>
@@ -143,19 +152,25 @@
                     <div
                         class="flex flex-col mx-auto space-y-4 font-mono text-white text-sm font-bold leading-6 max-w-xs">
                         <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
-                            <form action="others/reduce-vol/30" method="post">
-                                <input type="submit" class="p-4 cursor-pointer" value="Reduce volume to 30%" />
-                            </form>
+                            <button class="hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onclick="performTask('reduce-vol-30')">
+                                Reduce volumte to 30
+                            </button>
+                            <span class="p-2 text-black"></span>
                         </div>
                         <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
-                            <form action="others/mute" method="post">
-                                <input type="submit" class="p-4 cursor-pointer" value="Mute" />
-                            </form>
+                            <button class="hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onclick="performTask('mute')">
+                                Mute
+                            </button>
+                            <span class="p-2 text-black"></span>
                         </div>
                         <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
-                            <form action="others/unmute" method="post">
-                                <input type="submit" class="p-4 cursor-pointer" value="Unmute" />
-                            </form>
+                            <button class="hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                onclick="performTask('unmute')">
+                                Unmute
+                            </button>
+                            <span class="p-2 text-black"></span>
                         </div>
                     </div>
                 </div>
