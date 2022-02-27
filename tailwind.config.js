@@ -2,6 +2,7 @@ module.exports = {
   darkMode: 'class',
   content: [
     './public/index.html',
+    './node_modules/tw-elements/dist/js/**/*.js'
   ],
   theme: {
     extend: {},
@@ -10,6 +11,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('tw-elements/dist/plugin'),
     require('tailwindcss'),
     require('autoprefixer'),
   ],
