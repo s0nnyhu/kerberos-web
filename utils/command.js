@@ -12,8 +12,8 @@ module.exports = {
         return cmd.runSync('shutdown /s /f /t 2700');
     },
 
-    reduceVol30: function () {
-        return cmd.runSync('nircmd.exe setsysvolume 15000')
+    reduceVol20: function () {
+        return cmd.runSync('nircmd.exe setsysvolume 13000')
     },
 
     killFirefox: function () {

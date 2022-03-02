@@ -8,8 +8,8 @@ function getTaskUrl(task) {
             return window.location.href + 'shutdown/45';
         case 'kill-firefox':
             return window.location.href + 'kill/firefox';
-        case 'reduce-vol-30':
-            return window.location.href + 'others/reduce-vol/30';
+        case 'reduce-vol-20':
+            return window.location.href + 'others/reduce-vol/20';
         case 'mute':
             return window.location.href + 'others/mute';
         case 'unmute':
