@@ -78,6 +78,13 @@
                             </button>
                             <span class="p-2 text-black"></span>
                         </div>
+                        <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
+                            <button class="hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded"
+                                onclick="performTask('cancel-shutdown')">
+                                Cancel shutdown
+                            </button>
+                            <span class="p-2 text-black"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -153,9 +160,10 @@
                         class="flex flex-col mx-auto space-y-4 font-mono text-white text-sm font-bold leading-6 max-w-xs">
                         <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">
                             <button class="hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded"
-                                onclick="performTask('reduce-vol-20')">
-                                Reduce volumte to 20%
+                                onclick="performTask('reduce-vol')">
+                                Reduce volume
                             </button>
+                            <input type="text" id="volumeValue" class="text-black" value="21000">
                             <span class="p-2 text-black"></span>
                         </div>
                         <div class="rounded-lg flex items-center justify-center bg-indigo-500 shadow-lg cursor-pointer">

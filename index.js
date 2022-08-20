@@ -6,6 +6,7 @@ app.use(express.static('node_modules/tw-elements'))
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 
 const cmd = require('./utils/command')
 const network = require('./utils/network')
@@ -38,6 +39,14 @@ app.post('/shutdown/45', function (req, res) {
     res.json({ status: 'ok' })
 });
 
+app.post('/shutdown/cancel', function (req, res) {
+    let resCmd = cmd.cancelShutdown();
+    if (resCmd.err) {
+        res.json({ status: 'nok' })
+    }
+    res.json({ status: 'ok' })
+});
+
 app.post('/kill/firefox', function (req, res) {
     let resCmd = cmd.killFirefox();
     if (resCmd.err) {
@@ -47,8 +56,9 @@ app.post('/kill/firefox', function (req, res) {
 });
 
 
-app.post('/others/reduce-vol/20', function (req, res) {
-    let resCmd = cmd.reduceVol20();
+app.post('/others/reduce-vol', function (req, res) {
+    const vol = req.body.volume
+    let resCmd = cmd.reduceVol(vol);
     if (resCmd.err) {
         res.json({ status: 'nok' })
     }

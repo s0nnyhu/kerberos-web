@@ -4,16 +4,22 @@ module.exports = {
         return cmd.runSync('shutdown /s /f /t 0');
     },
 
+    cancelShutdown: function () {
+        return cmd.runSync('shutdown /a');
+    },
+
     shutdown30: function () {
+        cmd.runSync('shutdown /a');
         return cmd.runSync('shutdown /s /f /t 1800');
     },
 
     shutdown45: function () {
+        cmd.runSync('shutdown /a');
         return cmd.runSync('shutdown /s /f /t 2700');
     },
 
-    reduceVol20: function () {
-        return cmd.runSync('nircmd.exe setsysvolume 13000')
+    reduceVol: function (value) {
+        return cmd.runSync('nircmd.exe setsysvolume ' + value)
     },
 
     killFirefox: function () {

@@ -2,14 +2,16 @@ function getTaskUrl(task) {
     switch (task) {
         case 'instant-shutdown':
             return window.location.href + 'shutdown/instant';
+        case 'cancel-shutdown':
+            return window.location.href + 'shutdown/cancel';
         case 'shutdown-30':
             return window.location.href + 'shutdown/30';
         case 'shutdown-45':
             return window.location.href + 'shutdown/45';
         case 'kill-firefox':
             return window.location.href + 'kill/firefox';
-        case 'reduce-vol-20':
-            return window.location.href + 'others/reduce-vol/20';
+        case 'reduce-vol':
+            return window.location.href + 'others/reduce-vol';
         case 'mute':
             return window.location.href + 'others/mute';
         case 'unmute':
@@ -28,11 +30,16 @@ function displayTaskResult(event, text, strClass) {
 
 function performTask(task) {
     let eventSrc = event
+    const vol = document.querySelector('#volumeValue').value
+
+    const body = { volume: vol };
+    const headers = {
+        'Content-Type': 'application/json',
+    }
     fetch(getTaskUrl(task), {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        headers: headers,
+        body: JSON.stringify(body)
     })
         .then(response => response.json())
         .then(data => {
