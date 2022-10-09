@@ -1,5 +1,11 @@
+
 # Kerberos-web
-Node app to perform some computer tasks
+Node web app to interact with computer:
+
+* Close firefox
+* Shutdown computer
+* Reduce/Mute/Unmute computer volume
+
 
 # Requirements
-nircmd as env variable
+***nircmd***
